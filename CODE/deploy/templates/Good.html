@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TITLE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animation.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap" rel="stylesheet">
+    <style>
+        .back {
+            background-image: url("{{ url_for('static', filename='image/Good.png') }}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #ffffff;
+        }
+        
+        .gap {
+            padding: 10px 20px;
+        }
+        
+        .Ptron {
+            opacity: 0.75;
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            background-color: #93c0ee;
+            border-radius: 0.3rem;
+            background: #bcd3ee;
+            /* Old browsers */
+            background: -moz-linear-gradient(top, #a1def0 0%, #897df1 14%, #0210db 100%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, #a1def0 0%, #897df1 14%, #0210db 100%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, #a1def0 0%, #897df1 14%, #0210db 100%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f0b7a1', endColorstr='#bf6e4e', GradientType=0);
+            /* IE6-9 */
+            color: linear-gradient(rgb(198, 250, 191), rgb(153, 253, 125), rgb(60, 255, 6));
+        }
+        /* 
+        h1 {
+            background: -webkit-linear-gradient(rgb(169, 245, 169), rgb(237, 255, 232));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }*/
+        
+        button {
+            background: radial-gradient(circle, #379c94 0%, #05f5e1 14%, #37f8e8 100%);
+            border-radius: 12px;
+            border-color: #0210db;
+            color: antiquewhite;
+            font-size: 18px;
+        }
+        
+        button:hover {
+            background: radial-gradient(circle, #84d7f0 0%, #00ffea 14%, #008378 100%);
+            border-radius: 12px;
+            font-size: 18px;
+            border-color: red;
+            color: rgb(0, 25, 58);
+            transform: scale(1.2);
+        }
+        
+        .centre {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .container {
+            height: 200px;
+            position: relative;
+        }
+        
+        .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 35%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 90px;
+            background-color: #D0DAEE;
+        }
+        
+        .oval {
+            height: 100px;
+            line-height: 100px;
+            border-radius: 50%;
+            font-size: 50px;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            background: radial-gradient(circle, rgb(177, 255, 141) 0%, rgb(21, 253, 0) 15%, rgb(6, 173, 0) 100%);
+        }
+        
+        .c1 {
+            text-align: center;
+            font-size: larger;
+            list-style: none;
+            background-color: white;
+            margin-left: -45%;
+            font-size: 0.75cm;
+        }
+        
+        .c1:hover {
+            text-align: center;
+            font-size: larger;
+            list-style: none;
+            background-color: white;
+            transform: scale(1.1);
+            margin-left: -45%;
+            font-size: 0.6cm;
+        }
+        
+        ul {
+            list-style: none;
+            color: rgb(0, 0, 0);
+        }
+    </style>
+
+</head>
+
+<body class="back">
+    <div>
+        <div class="Ptron">
+            <h1 style="text-align:center;color: rgb(255, 255, 255);">Phishing Website Checker</h1>
+
+        </div>
+        <!-- Main Input For Receiving Query to our ML -->
+    </div>
+    <div>
+        <div class="container">
+            <div class="vertical-center">
+
+                <div class="c1">
+                    <ul>
+                        <li>This site is safe to enter and share data such as Credit card details, social media account logins and other personal details.</li>
+                        <li> The connection of this site is secure and free from fraudulent ads. </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer id="Footer">
+            <div class="oval">
+                {{ prediction_text }}
+            </div>
+            <div class="container">
+                <div class="vertical-center">
+                    <form class="form-group" action="{{ url_for('in11')}}" method="post">
+                        <button type="submit" style="width:350px;padding:20px">Back</button></form>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </div>
+</body>
+
+</html>

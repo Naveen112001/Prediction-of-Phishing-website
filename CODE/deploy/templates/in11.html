@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TITLE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animation.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap" rel="stylesheet">
+    <style>
+        @-webkit-keyframes bounce {
+            from,
+            20%,
+            53%,
+            80%,
+            to {
+                -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            40%,
+            43% {
+                -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                -webkit-transform: translate3d(0, -30px, 0);
+                transform: translate3d(0, -30px, 0);
+            }
+            70% {
+                -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                -webkit-transform: translate3d(0, -15px, 0);
+                transform: translate3d(0, -15px, 0);
+            }
+            90% {
+                -webkit-transform: translate3d(0, -4px, 0);
+                transform: translate3d(0, -4px, 0);
+            }
+        }
+        
+        @keyframes bounce {
+            from,
+            20%,
+            53%,
+            80%,
+            to {
+                -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            40%,
+            43% {
+                -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                -webkit-transform: translate3d(0, -30px, 0);
+                transform: translate3d(0, -30px, 0);
+            }
+            70% {
+                -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                -webkit-transform: translate3d(0, -15px, 0);
+                transform: translate3d(0, -15px, 0);
+            }
+            90% {
+                -webkit-transform: translate3d(0, -4px, 0);
+                transform: translate3d(0, -4px, 0);
+            }
+        }
+        
+        .bounce {
+            -webkit-animation-name: bounce;
+            animation-name: bounce;
+            -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
+        }
+        
+        .bounce:hover {
+            -webkit-animation-name: bounce;
+            animation-name: bounce;
+            -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
+        }
+        
+        .back {
+            background-image: url("{{ url_for('static', filename='image/image.png') }}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+        
+        .Quest:hover {
+            color: rgb(252, 252, 252);
+            font-size: 20px;
+            transform: scale(1.1);
+        }
+        
+        .Quest {
+            color: rgb(4, 255, 242);
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .space {
+            margin: 10px 30px;
+            padding: 10px 10px;
+            background: rgb(197, 230, 222);
+            border: 1px solid rgb(0, 26, 255);
+            color: rgb(0, 0, 0);
+            width: 500px;
+        }
+        
+        .space:hover {
+            margin: 10px 30px;
+            padding: 10px 10px;
+            background: rgb(197, 230, 222);
+            border: 1px solid rgb(253, 3, 3);
+            color: rgb(0, 0, 0);
+            width: 500px;
+        }
+        
+        .space:active {
+            margin: 10px 30px;
+            padding: 10px 10px;
+            background: rgb(127, 253, 222);
+            border: 1px solid rgb(253, 3, 3);
+            color: rgb(0, 0, 0);
+            width: 500px;
+        }
+        
+        .gap {
+            padding: 10px 20px;
+        }
+        
+        .Ptron {
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            background-color: #93c0ee;
+            border-radius: 0.3rem;
+            background: #bcd3ee;
+            /* Old browsers */
+            background: -moz-linear-gradient(top, #a1def0 0%, #897df1 14%, #0210db 100%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, #a1def0 0%, #897df1 14%, #0210db 100%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, #a1def0 0%, #897df1 14%, #0210db 100%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f0b7a1', endColorstr='#bf6e4e', GradientType=0);
+            /* IE6-9 */
+            color: linear-gradient(rgb(198, 250, 191), rgb(153, 253, 125), rgb(60, 255, 6));
+        }
+        /* 
+        h1 {
+            background: -webkit-linear-gradient(rgb(169, 245, 169), rgb(237, 255, 232));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }*/
+        
+        input:hover {
+            background: rgb(197, 230, 222);
+            border: 1px solid rgb(0, 201, 201);
+            color: rgb(255, 17, 0);
+            transform: scale(1.1);
+        }
+        
+        button {
+            background-color: rgb(141, 247, 229);
+            border-radius: 12px;
+            border-color: #0210db;
+            font-size: 18px;
+        }
+        
+        button:hover {
+            background-color: rgb(6, 105, 253);
+            border-radius: 12px;
+            font-size: 18px;
+            border-color: red;
+            color: antiquewhite;
+            transform: scale(1.2);
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            font-size: 10px;
+            background-color: #ffffff;
+        }
+        
+        .list {
+            color: blue;
+        }
+        
+        .column {
+            float: left;
+            width: 50%;
+            top: 0px;
+            /* Should be removed. Only for demonstration */
+        }
+        /* Clear floats after the columns */
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        .centre {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #ffffff;
+        }
+        
+        .simple {
+            background-color: yellowgreen;
+            font-size: small;
+            border-radius: 3px;
+            opacity: 1;
+        }
+        
+        .simple:hover {
+            background-color: yellowgreen;
+            font-size: small;
+            border-radius: 3px;
+        }
+        
+        li:hover {
+            transform: scale(1.2);
+        }
+        
+        .row1 {
+            margin-left: 5%;
+            content: "";
+            display: table;
+            width: 500px;
+            height: 35px;
+            margin: 10px 30px;
+        }
+        
+        .row1:hover {
+            border: 2px solid rgb(250, 30, 1);
+        }
+        
+        .col1 {
+            float: left;
+            width: 33.33%;
+            top: 0px;
+            align-items: center;
+        }
+    </style>
+
+</head>
+
+<body class="back">
+    <div>
+        <div class="Ptron">
+            <h1 style="text-align:center;color: rgb(255, 255, 255);">Phishing Website Checker</h1>
+
+        </div>
+        <!-- Main Input For Receiving Query to our ML -->
+        <div>
+            <form class="form-group" action="{{ url_for('predict')}}" method="post">
+                <div class="bounce">
+                    <table class="centre">
+                        <tr class="Quest">
+                            <td class="Quest">Server Form Handler </td>
+                            <td>
+                                <input type="number" class="space form-control" name="SFH" placeholder="Server Form Handler" required="required"></input>
+                            </td>
+                        </tr>
+
+                        <tr class="Quest">
+                            <td class="Quest">Pop Up Windows</td>
+                            <td> <input type="number" class="space form-control" step="0.01" name="POPUPWINDOW" placeholder="Pop Up Windows" required="required" /><br>
+                            </td>
+                        </tr>
+                        <tr class="Quest">
+                            <td class="Quest"> Secure Sockets Layer Final State</td>
+                            <td class="row1">
+                                <div class="col1"><input type="radio" name="SSLFINAL_STATE" required="required" value=-1>-1</input>
+                                </div>
+                                <div class="col1"><input type="radio" name="SSLFINAL_STATE" required="required" value=0>0</input>
+                                </div>
+                                <div class="col1"><input type="radio" name="SSLFINAL_STATE" required="required" value=1>1</input>
+                                </div>
+                            </td><br>
+                        </tr>
+                        <tr class="Quest">
+                            <td class="Quest">Request Url</td>
+                            <td> <input type="number" class="space form-control" step="0.01" name="REQUEST_URL" placeholder="Request URL" required="required" /><br>
+                            </td>
+                        </tr>
+                        <tr class="Quest">
+                            <td class="Quest">Url Of Anchor</td>
+                            <td> <input type="number" class="space form-control" step="0.01" name="URL_OF_ANCHOR" placeholder="Url Of Anchor" required="required" /><br>
+                            </td>
+                        </tr>
+                        <tr class="Quest">
+                            <td class="Quest">Web Traffic</td>
+                            <td> <input type="number" class="space form-control" step="0.01" name="WEB_TRAFFIC" placeholder="Web Traffic" required="required" /><br>
+                            </td>
+                        </tr>
+                        <tr class="Quest">
+                            <td class="Quest">URL Length</td>
+                            <td class="row1">
+                                <div class="col1"><input type="radio" name="URL_LENGTH" required="required" value=-1>-1</input>
+                                </div>
+                                <div class="col1"><input type="radio" name="URL_LENGTH" required="required" value=0>0</input>
+                                </div>
+                                <div class="col1"><input type="radio" name="URL_LENGTH" required="required" value=1>1</input>
+                                </div>
+                            </td><br>
+                        </tr>
+                        <tr class="Quest">
+                            <td class="Quest">Age Of Domain</td>
+                            <td class="row1">
+                                <div class="col1"><input type="radio" name="AGE_OF_DOMAIN" required="required" value=-1>-1</input>
+                                </div>
+                                <div class="col1"><input type="radio" name="AGE_OF_DOMAIN" required="required" value=0>0</input>
+                                </div>
+                                <div class="col1"><input type="radio" name="AGE_OF_DOMAIN" required="required" value=1>1</input>
+                                </div>
+                            </td>
+                        </tr><br>
+                        <tr class="Quest">
+                            <td class="Quest"> Ip Address Availability</td>
+                            <td> <input type="number" class="space form-control" step="0.01" name="HAVING_IP_ADDRESS" placeholder="Having Ip Address" required="required" /><br>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div style="padding:2% 35%">
+                    <button type="submit" style="width:350px;padding:20px">Check</button>
+                </div>
+
+            </form>
+            <br>
+            <br>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="row">
+            <div class="column">
+                <ul>
+                    <li class="list">GaneshKumar M A 211518104037</li>
+                    <li class="list">Naveenkumar K 211518104101</li>
+                    <li class="list">Selvakumar G 211518104149</li>
+
+                </ul>
+            </div>
+            <div class="column">
+                <div style="color: blue;text-align:left;">
+                    <h6 class="bounce">Project Title: Prediction Of Phishing Website Using Machine Learning</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
