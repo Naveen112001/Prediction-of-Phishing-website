@@ -1,5 +1,5 @@
 # Prediction-of-Phishing-website
-Prediction of phishing website using ML deployed locally using flask in python
+Prediction of phishing website using ML deployed locally using flask in python.The project is consists of 7 modules each module is completed one after another
 This Algorithm based on Numerical Tested already parameters which gives works on Numerical values so no need for alpha numeric conversion of the Data set is required.
 1. The entire parameters consists of 0,-1,1
 2. This Prediction is done 4 basic classification algorithm are:
