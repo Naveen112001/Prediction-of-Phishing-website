@@ -5,9 +5,13 @@ This Algorithm based on Numerical Tested already parameters which gives works on
 2. This Prediction is done 4 basic classification algorithm are:
 
   i.   Naive bayes
+  
   ii.  Logistic Regression
+  
   iii. Decision Tree
+  
   iv.  Random Forest
+  
 3. All the above algorithm are compared with the accuracy rate then the most high accurate algorithm is choosed and deployed.
 4. Random forest is more accurate algorithm with accuracy rate=89% .
 5. The pickle file of the randomforest model is invoked and used in flask algorithm
